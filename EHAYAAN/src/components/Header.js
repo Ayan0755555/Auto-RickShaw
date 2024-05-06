@@ -54,20 +54,22 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-7">
-          <div className="text-3xl cursor-pointer">
-            {user?.profilePic ? (
-              <img
-                src={user?.profilePic}
-                className="w-10 h-10 rounded-full"
-                alt={user?.name}
-              />
-            ) : (
-              <FaUserCircle />
-            )}
-          </div>
+          {user && user._id ? (
+            <div className="text-3xl cursor-pointer">
+              {user.profilePic ? (
+                <img
+                  src={user.profilePic}
+                  className="w-10 h-10 rounded-full"
+                  alt={user.name}
+                />
+              ) : (
+                <FaUserCircle />
+              )}
+            </div>
+          ) : null}
 
           <div>
-            {user?._id ? (
+            {user && user._id ? (
               <button
                 onClick={handleLogout}
                 className="px-3 py-1 rounded-full text-white bg-green-700 hover:bg-pink-700"
